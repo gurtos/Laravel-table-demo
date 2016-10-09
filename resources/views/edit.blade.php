@@ -4,7 +4,9 @@
 		<title>Użytkownicy</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="{{asset('css/style.css')}}" />
-		<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+		<link href="{{asset('js/jquery-ui-1.12.1.custom/jquery-ui.css')}}" rel="stylesheet">
+		<script src="{{asset('js/jquery-ui-1.12.1.custom/jquery.js')}}"></script>
+		<script src="{{asset('js/jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
 		<script>
 			var branches = {
 				@foreach($companies as $company)
@@ -33,6 +35,9 @@
 					setBranches($(this));
 				});
 				setBranches($('[name="company"]'), {{$person->branch}});
+				$('[name="client[birthdate]"]').datepicker({
+					dateFormat: 'yy-mm-dd'
+				});
 			});
 		</script>
 	</head>

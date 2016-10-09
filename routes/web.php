@@ -18,9 +18,9 @@ Route::get('/',function() {
 	foreach($people as $person){
 		$person->sex = ( substr_compare($person['name'], 'a', -1, 1, true)===0?"Kobieta":"Mężczyzna");
 		$person->city = $person->city()->first();
-		$year = DateTime::createFromFormat('Y-m-d', $person->birthdate)->format('Y');
-		$cy = (new DateTime())->format('Y');
-		$person->age = $cy - $year;
+		$year = DateTime::createFromFormat('Y-m-d', $person->birthdate);
+		$cy = new DateTime();
+		$person->age = $cy->diff($year)->format('%y');
 		$person->branch = $person->branch()->first();
 		$person->company = $person->branch->company()->first();
 	}
@@ -43,9 +43,9 @@ Route::post('/', function(Request $request){
 	foreach($people as $person){
 		$person->sex = ( substr_compare($person['name'], 'a', -1, 1, true)===0?"Kobieta":"Mężczyzna");
 		$person->city = $person->city()->first();
-		$year = DateTime::createFromFormat('Y-m-d', $person->birthdate)->format('Y');
-		$cy = (new DateTime())->format('Y');
-		$person->age = $cy - $year;
+		$year = DateTime::createFromFormat('Y-m-d', $person->birthdate);
+		$cy = new DateTime();
+		$person->age = $cy->diff($year)->format('%y');
 		$person->branch = $person->branch()->first();
 		$person->company = $person->branch->company()->first();
 	}
