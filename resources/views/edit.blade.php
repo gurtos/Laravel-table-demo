@@ -3,6 +3,7 @@
 	<head>
 		<title>Użytkownicy</title>
 		<meta charset="utf-8" />
+		<link rel="stylesheet" href="{{asset('css/style.css')}}" />
 		<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
 		<script>
 			var branches = {

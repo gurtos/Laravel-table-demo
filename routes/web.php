@@ -28,13 +28,15 @@ Route::get('/',function() {
 });
 
 Route::post('/', function(Request $request){
-	//dd($request->client);
 	if($request->action == "new"){
 		\App\Client::create( $request->client );
 	}
 	else if($request->action == "edit"){
 		$client = \App\Client::where('id', $request->id);
 		$client->update($request->client);
+	}
+	else if($request->action == "delete"){
+		\App\Client::where('id', $request->id)->delete();
 	}
 	
 	$people = \App\Client::all();
