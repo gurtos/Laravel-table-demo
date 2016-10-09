@@ -50,53 +50,65 @@
 			<input type="hidden" name="id" value="{{$person->id}}" />
 			@endif
 			<div class="fields">
-				<div class="label">
-					<label>Nazwisko</label>
+				<div class="row">
+					<div class="label">
+						<label>Nazwisko</label>
+					</div>
+					<div class="field">
+						<input name="client[surname]" type="text" value="{{$person->surname}}" />
+					</div>
 				</div>
-				<div class="field">
-					<input name="client[surname]" type="text" value="{{$person->surname}}" />
+				<div class="row">
+					<div class="label">
+						<label>Imię</label>
+					</div>
+					<div class="field">
+						<input name="client[name]" type="text" value="{{$person->name}}" />
+					</div>
 				</div>
-				<div class="label">
-					<label>Imię</label>
+				<div class="row">
+					<div class="label">
+						<label>Miejscowość</label>
+					</div>
+					<div class="field">
+						<select name="client[city]">
+						@foreach($cities as $city)
+							<option value="{{$city->id}}" {{($person->city==$city->id)?"selected":"" }}>{{$city->name}}</option>
+						@endforeach
+						</select>
+					</div>
 				</div>
-				<div class="field">
-					<input name="client[name]" type="text" value="{{$person->name}}" />
+				<div class="row">
+					<div class="label">
+						<label>Data urodzenia</label>
+					</div>
+					<div class="field">
+						<input name="client[birthdate]" type="text" value="{{$person->birthdate}}" />
+					</div>
 				</div>
-				<div class="label">
-					<label>Miejscowość</label>
+				<div class="row">
+					<div class="label">
+						<label>Firma</label>
+					</div>
+					<div class="field">
+						<select name="company">
+						@foreach($companies as $company)
+							<option value="{{$company->id}}" {{($person->company==$company->id)?"selected":"" }}>{{$company->name}}</option>
+						@endforeach
+						</select>
+					</div>
 				</div>
-				<div class="field">
-					<select name="client[city]">
-					@foreach($cities as $city)
-						<option value="{{$city->id}}" {{($person->city==$city->id)?"selected":"" }}>{{$city->name}}</option>
-					@endforeach
-					</select>
-				</div>
-				<div class="label">
-					<label>Data urodzenia</label>
-				</div>
-				<div class="field">
-					<input name="client[birthdate]" type="text" value="{{$person->birthdate}}" />
-				</div>
-				<div class="label">
-					<label>Firma</label>
-				</div>
-				<div class="field">
-					<select name="company">
-					@foreach($companies as $company)
-						<option value="{{$company->id}}" {{($person->company==$company->id)?"selected":"" }}>{{$company->name}}</option>
-					@endforeach
-					</select>
-				</div>
-				<div class="label">
-					<label>Oddział</label>
-				</div>
-				<div class="field">
-					<select name="client[branch]">
-					</select>
+				<div class="row">
+					<div class="label">
+						<label>Oddział</label>
+					</div>
+					<div class="field">
+						<select name="client[branch]">
+						</select>
+					</div>
 				</div>
 			</div>
-			<button>Zapisz</button>
+			<button class="btn">Zapisz</button>
 		</form>
 	</body>
 </html>
