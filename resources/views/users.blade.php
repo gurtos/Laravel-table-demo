@@ -36,5 +36,5 @@
 		</tr>
 		@endforeach
 	</table>
-	<a href="new">Nowy</a>
+	<a href="new" class="btn">Nowy</a>
 </html>

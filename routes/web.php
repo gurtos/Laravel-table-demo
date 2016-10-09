@@ -62,7 +62,10 @@ Route::get('new', function(){
 	$person = (object) array(
 		'name' => '',
 		'surname' => '',
-		'birthdate' =>date('Y-m-d')
+		'birthdate' => date('Y-m-d'),
+		'branch' => '1',
+		'city' => '1',
+		'company' => '1'
 	);
 	return view('edit', compact('action','cities', 'companies','person'));
 });
